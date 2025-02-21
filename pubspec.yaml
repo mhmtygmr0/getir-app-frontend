@@ -64,6 +64,7 @@ flutter:
     - assets/ice_cream.png
     - assets/milk_dairy.png
     - assets/snacks.png
+    - assets/mainImage.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
