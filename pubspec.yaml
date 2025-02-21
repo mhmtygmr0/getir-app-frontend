@@ -56,6 +56,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/drinks.png
+    - assets/baked_goods.png
+    - assets/food.png
+    - assets/fruits_vegetables.png
+    - assets/ice_cream.png
+    - assets/milk_dairy.png
+    - assets/snacks.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
