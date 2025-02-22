@@ -23,16 +23,15 @@ class MyHomePage extends StatelessWidget {
       // Scaffold, temel bir materyal tasarımı widget'ıdır. Uygulamanın yapısını oluşturur.
       appBar: AppBar(
         // AppBar, uygulamanın üst kısmında bulunan bir araç çubuğudur.
-        title: Center(
-          child: Text(
-            _title,
-            style: TextStyle(
-              color: Colors.amber,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+        title: Text(
+          _title,
+          style: TextStyle(
+            color: Colors.amber,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
           ),
         ),
+        centerTitle: true,
         backgroundColor: Color(0xFF5C3CBB),
       ),
 
@@ -44,22 +43,19 @@ class MyHomePage extends StatelessWidget {
           mainIcons(_mainImage),
           SizedBox(height: 5),
           // SizedBox, boşluk eklemek için kullanılır.
-          Row(
-            // Row, widget'ları yatay olarak sıralar.
-            children: [
-              // buildIcons adında bir widget çağırıyoruz. Bu widget, bir resim ve metin içerir.
-              buildIcons(_drinksImage, "Beverages"),
-              buildIcons(_snacksImage, "Snacks"),
-              buildIcons(_fruitsImage, "Fruit & Vegetables"),
-              buildIcons(_milkDairyImage, "Milk & Dairy"),
-            ],
-          ),
-          Row(
-            children: [
-              buildIcons(_bakedImage, "Baked Goods"),
-              buildIcons(_iceCreamImage, "Ice Cream"),
-              buildIcons(_foodImage, "Food"),
-            ],
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 3,
+              children: [
+                buildIcons(_drinksImage, "Beverages"),
+                buildIcons(_snacksImage, "Snacks"),
+                buildIcons(_fruitsImage, "Fruit & Vegetables"),
+                buildIcons(_milkDairyImage, "Milk & Dairy"),
+                buildIcons(_bakedImage, "Baked Goods"),
+                buildIcons(_iceCreamImage, "Ice Cream"),
+                buildIcons(_foodImage, "Food"),
+              ],
+            ),
           ),
         ],
       ),
@@ -87,30 +83,35 @@ Widget mainIcons(String imagePath) {
 
 // buildIcons adında bir widget oluşturuyoruz. Bu widget, bir resim ve metin içerir.
 Widget buildIcons(String imagePath, String text) {
-  return Column(
-    children: [
-      Padding(
-        padding: const EdgeInsets.only(left: 20.0, top: 20.0),
-        child: Container(
-          // Container, bir kutudur ve içine widget'lar yerleştirilebilir.
-          width: 75,
-          height: 75,
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            child: Image.asset(imagePath),
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            // Container, bir kutudur ve içine widget'lar yerleştirilebilir.
+            width: 75,
+            height: 75,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              child: Image.asset(imagePath),
+            ),
           ),
         ),
-      ),
-      SizedBox(height: 3), // SizedBox, boşluk eklemek için kullanılır.
-      Text(
-        text,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
-        textAlign: TextAlign.center,
-      ),
-    ],
+        SizedBox(height: 3), // SizedBox, boşluk eklemek için kullanılır.
+        Text(
+          text,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ),
   );
 }
