@@ -74,6 +74,7 @@ flutter:
     - assets/meats.png
     - assets/pets.png
     - assets/readyFood.png
+    - assets/advert.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
