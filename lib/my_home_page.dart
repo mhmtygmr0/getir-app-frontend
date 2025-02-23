@@ -4,7 +4,7 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final String _appBarTitle = "getir";
-  final String _advertImage = "assets/mainImage.png";
+  final String _advertImage = "assets/advert2.png";
 
   final List<Map<String, String>> _categories = [
     {"image": "assets/drinks.png", "title": "Su & İçecek"},

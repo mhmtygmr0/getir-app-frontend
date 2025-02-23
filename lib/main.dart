@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'deneme.dart';
 import 'my_home_page.dart';
 
 void main() {
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: deneme(),
+      home: MyHomePage(),
     );
   }
 }
