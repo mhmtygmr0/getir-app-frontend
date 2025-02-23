@@ -46,7 +46,21 @@ class deneme extends StatelessWidget {
           // Kategorileri gösteren metodu çağırıyoruz.
         ],
       ),
+      bottomNavigationBar: _getBottomNavigationBar(),
     );
+  }
+
+  Widget _getBottomNavigationBar() {
+    return BottomNavigationBar(items: [
+      BottomNavigationBarItem(
+          icon: Icon(Icons.home, color: Colors.grey), label: ""),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.search, color: Colors.grey), label: ""),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.person, color: Colors.grey), label: ""),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.card_giftcard, color: Colors.grey), label: "")
+    ]);
   }
 
   // AppBar'ı oluşturan metot.

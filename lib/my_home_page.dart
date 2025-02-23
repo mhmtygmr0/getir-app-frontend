@@ -29,13 +29,25 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: _getAppBar(),
-        body: Column(
-          children: [
-            _getAdvert(_advertImage),
-            SizedBox(height: 20),
-            _getCategories(),
-          ],
-        ));
+        body: Column(children: [
+          _getAdvert(_advertImage),
+          SizedBox(height: 20),
+          _getCategories(),
+        ]),
+        bottomNavigationBar: _getBottomNavigationBar());
+  }
+
+  Widget _getBottomNavigationBar() {
+    return BottomNavigationBar(items: [
+      BottomNavigationBarItem(
+          icon: Icon(Icons.home, color: Colors.grey), label: ""),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.search, color: Colors.grey), label: ""),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.person, color: Colors.grey), label: ""),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.card_giftcard, color: Colors.grey), label: "")
+    ]);
   }
 
   PreferredSizeWidget _getAppBar() {
