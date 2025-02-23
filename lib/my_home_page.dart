@@ -28,27 +28,29 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            _appBarTitle,
-            style: TextStyle(
-              color: Colors.amber,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          centerTitle: true,
-          backgroundColor: Color(0xFF5C3CBB),
-        ),
+        appBar: _getAppBar(),
         body: Column(
           children: [
             _getAdvert(_advertImage),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             _getCategories(),
           ],
         ));
+  }
+
+  PreferredSizeWidget _getAppBar() {
+    return AppBar(
+      title: Text(
+        _appBarTitle,
+        style: TextStyle(
+          color: Colors.amber,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      centerTitle: true,
+      backgroundColor: Color(0xFF5C3CBB),
+    );
   }
 
   Widget _getAdvert(String image) {
