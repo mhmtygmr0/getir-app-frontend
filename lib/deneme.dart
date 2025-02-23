@@ -140,3 +140,25 @@ class deneme extends StatelessWidget {
     );
   }
 }
+
+/*  Widget'ların İşlevleri:
+
+Scaffold: Uygulamanın temel yapısını oluşturur.
+
+AppBar: Uygulamanın üst kısmında bulunan bir araç çubuğudur.
+
+Column: Widget'ları dikey olarak sıralar.
+
+GridView.builder: Dinamik olarak item'ları bir ızgarada gösterir.
+
+Container: Bir kutudur ve içine widget'lar yerleştirilebilir.
+
+ClipRRect: Widget'ın köşelerini yuvarlar.
+
+Image.asset: Belirtilen resmi ekranda gösterir.
+
+Text: Ekranda metin göstermek için kullanılır.
+
+SizedBox: Boşluk eklemek için kullanılır.
+
+ */
