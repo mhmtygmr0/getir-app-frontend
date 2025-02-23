@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+class deneme extends StatelessWidget {
+  deneme({super.key});
 
   final String _appBarTitle = "getir";
   final String _advertImage = "assets/mainImage.png";
