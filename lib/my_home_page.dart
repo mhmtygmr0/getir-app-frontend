@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.grey), label: ""),
+            icon: Icon(Icons.home, color: Color(0xFF5C3CBB)), label: ""),
         BottomNavigationBarItem(
             icon: Icon(Icons.search, color: Colors.grey), label: ""),
         BottomNavigationBarItem(
