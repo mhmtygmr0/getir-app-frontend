@@ -71,45 +71,47 @@ class MyHomePage extends StatelessWidget {
   }
 
   Widget _getAdressBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          width: 350,
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  "İş Yeri, Gaziantep Üniversitesi Teknopark",
-                  style: TextStyle(fontSize: 14, color: Colors.black),
-                  overflow: TextOverflow.ellipsis,
+    return GestureDetector(
+      onTap: () {},
+      child: Row(
+        children: [
+          Container(
+            width: 350,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "İş Yeri, Gaziantep Üniversitesi Teknopark",
+                    style: TextStyle(fontSize: 14, color: Colors.black),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              Icon(Icons.arrow_drop_down, color: Colors.grey),
-            ],
-          ),
-        ),
-        Container(
-          height: 45,
-          width: 98,
-          decoration: BoxDecoration(
-            color: Colors.amber,
-          ),
-          child: Center(
-            child: Text(
-              "15-20 DK",
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF5C3CBB),
-                  fontWeight: FontWeight.w700),
+                Icon(Icons.arrow_drop_down, color: Colors.grey),
+              ],
             ),
           ),
-        ),
-      ],
+          Container(
+            height: 45,
+            width: 98,
+            decoration: BoxDecoration(
+              color: Colors.amber,
+            ),
+            child: Center(
+              child: Text(
+                "15-20 DK",
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF5C3CBB),
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
