@@ -41,18 +41,15 @@ class MyHomePage extends StatelessWidget {
 
   Widget _getBottomNavigationBar() {
     return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Color(0xFF5C3CBB)), label: ""),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.search, color: Colors.grey), label: ""),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.grey), label: ""),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard, color: Colors.grey), label: "")
-      ],
-      type: BottomNavigationBarType.fixed,
-    );
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: ""),
+        ],
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF5C3CBB));
   }
 
   PreferredSizeWidget _getAppBar() {
