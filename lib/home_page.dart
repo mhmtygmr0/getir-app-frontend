@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
-
+class HomePage extends StatelessWidget {
   final String _appBarTitle = "getir";
   final String _advertImage = "assets/advert2.png";
   final String _address = "Gaziantep Üniversitesi Teknopark";
@@ -28,6 +26,8 @@ class MyHomePage extends StatelessWidget {
     {"image": "assets/pets.png", "title": "Evcil Hayvan"},
     {"image": "assets/baby.png", "title": "Bebek"},
   ];
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
