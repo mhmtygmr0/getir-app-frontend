@@ -5,6 +5,10 @@ class MyHomePage extends StatelessWidget {
 
   final String _appBarTitle = "getir";
   final String _advertImage = "assets/advert2.png";
+  final String _address = "Gaziantep Üniversitesi Teknopark";
+  final String _locationName = "İş Yeri";
+  final String _duration = "15-20 DK";
+  final Color _getirColor = Color(0xFF5C3CBB);
 
   final List<Map<String, String>> _categories = [
     {"image": "assets/drinks.png", "title": "Su & İçecek"},
@@ -30,7 +34,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         appBar: _getAppBar(),
         body: Column(children: [
-          _getAdressBar(),
+          _getAdressBar(_locationName, _address, _duration),
           SizedBox(height: 5),
           _getAdvert(_advertImage),
           SizedBox(height: 30),
@@ -49,7 +53,7 @@ class MyHomePage extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: ""),
         ],
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Color(0xFF5C3CBB));
+        selectedItemColor: _getirColor);
   }
 
   PreferredSizeWidget _getAppBar() {
@@ -63,11 +67,11 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       centerTitle: true,
-      backgroundColor: Color(0xFF5C3CBB),
+      backgroundColor: _getirColor,
     );
   }
 
-  Widget _getAdressBar() {
+  Widget _getAdressBar(String locationName, String address, String duration) {
     return GestureDetector(
       onTap: () {},
       child: Row(
@@ -84,12 +88,12 @@ class MyHomePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "İş Yeri, Gaziantep Üniversitesi Teknopark",
+                    "$locationName, $address",
                     style: TextStyle(fontSize: 14, color: Colors.black),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                Icon(Icons.arrow_drop_down, color: Colors.grey),
+                Icon(Icons.expand_more, color: _getirColor, size: 30),
               ],
             ),
           ),
@@ -101,10 +105,10 @@ class MyHomePage extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                "15-20 DK",
+                duration,
                 style: TextStyle(
                     fontSize: 14,
-                    color: Color(0xFF5C3CBB),
+                    color: _getirColor,
                     fontWeight: FontWeight.w700),
               ),
             ),
