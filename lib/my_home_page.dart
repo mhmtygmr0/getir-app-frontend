@@ -33,7 +33,7 @@ class MyHomePage extends StatelessWidget {
           _getAdressBar(),
           SizedBox(height: 5),
           _getAdvert(_advertImage),
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           _getCategories(),
         ]),
         bottomNavigationBar: _getBottomNavigationBar());
@@ -77,10 +77,12 @@ class MyHomePage extends StatelessWidget {
         children: [
           Container(
             width: 350,
+            height: 45,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              color: Colors.white,
-            ),
+                color: Colors.white,
+                borderRadius:
+                    BorderRadius.horizontal(right: Radius.circular(15))),
             child: Row(
               children: [
                 Expanded(
