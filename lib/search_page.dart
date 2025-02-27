@@ -1,34 +1,21 @@
+import 'package:fake_getir_app/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
-  SearchPage({super.key});
-
-  final String _appBarTitle = "Arama";
-  final Color _getirColor = Color(0xFF5C3CBB);
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _getAppBar(),
+      appBar: CustomWidgets.getAppBar("Arama", Colors.white, 19),
       body: Column(
         children: [_getTextField()],
       ),
-    );
-  }
-
-  PreferredSizeWidget _getAppBar() {
-    return AppBar(
-      title: Text(
-        _appBarTitle,
-        style: TextStyle(color: Colors.white),
-      ),
-      centerTitle: true,
-      backgroundColor: _getirColor,
+      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(1, (index) {}),
     );
   }
 
   Widget _getTextField() {
-    return TextField(
-    );
+    return TextField();
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'custom_widgets.dart';
+
 class HomePage extends StatelessWidget {
-  final String _appBarTitle = "getir";
   final String _advertImage = "assets/advert2.png";
   final String _address = "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
   final String _locationName = "Ev";
   final String _duration = "15-20 DK";
-  final Color _getirColor = Color(0xFF5C3CBB);
 
   final List<Map<String, String>> _categories = [
     {"image": "assets/drinks.png", "title": "Su & İçecek"},
@@ -32,42 +32,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _getAppBar(),
-        body: Column(children: [
+      appBar: CustomWidgets.getAppBar("getir", Colors.amber, 24),
+      body: Column(
+        children: [
           _getAdressBar(context, _locationName, _address, _duration),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           _getAdvert(_advertImage),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           _getCategories(),
-        ]),
-        bottomNavigationBar: _getBottomNavigationBar());
-  }
-
-  Widget _getBottomNavigationBar() {
-    return BottomNavigationBar(
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: ""),
         ],
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: _getirColor);
-  }
-
-  PreferredSizeWidget _getAppBar() {
-    return AppBar(
-      title: Text(
-        _appBarTitle,
-        style: TextStyle(
-          color: Colors.amber,
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
       ),
-      centerTitle: true,
-      backgroundColor: _getirColor,
+      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(0, (index) {}),
     );
   }
 
@@ -84,26 +59,29 @@ class HomePage extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.80,
                 height: 40,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius:
                       BorderRadius.horizontal(right: Radius.circular(10)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      top: 10, bottom: 10, left: 15, right: 20),
+                      top: 11, bottom: 11, left: 15, right: 20),
                   child: Row(
                     children: [
                       Expanded(
                         child: Text(
                           "$locationName, $address",
-                          style: TextStyle(fontSize: 13, color: Colors.black),
+                          style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.expand_more,
-                        color: _getirColor,
+                        color: CustomWidgets.getirColor,
                       )
                     ],
                   ),
@@ -113,15 +91,15 @@ class HomePage extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerRight,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.20,
               height: 40,
               child: Center(
                 child: Text(
                   duration,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 13,
-                      color: _getirColor,
+                      color: CustomWidgets.getirColor,
                       fontWeight: FontWeight.w700),
                 ),
               ),
@@ -134,7 +112,7 @@ class HomePage extends StatelessWidget {
 
   Widget _getAdvert(String image) {
     return Padding(
-      padding: EdgeInsets.only(left: 10, right: 10, top: 15),
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: Image.asset(
@@ -147,20 +125,22 @@ class HomePage extends StatelessWidget {
 
   Widget _getCategories() {
     return Expanded(
-        child: GridView.builder(
-            itemCount: _categories.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: 0.9,
-            ),
-            itemBuilder: (context, index) {
-              return _buildCategories(
-                _categories[index]["image"]!,
-                _categories[index]["title"]!,
-              );
-            }));
+      child: GridView.builder(
+        itemCount: _categories.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          childAspectRatio: 0.9,
+        ),
+        itemBuilder: (context, index) {
+          return _buildCategories(
+            _categories[index]["image"]!,
+            _categories[index]["title"]!,
+          );
+        },
+      ),
+    );
   }
 
   Widget _buildCategories(String imagePath, String text) {
