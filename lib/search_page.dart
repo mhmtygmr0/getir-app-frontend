@@ -11,7 +11,7 @@ class SearchPage extends StatelessWidget {
     return Scaffold(
       appBar: _getAppBar(),
       body: Column(
-        children: [_getTextBox()],
+        children: [_getTextField()],
       ),
     );
   }
@@ -27,7 +27,8 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  Widget _getTextBox() {
-    return TextField();
+  Widget _getTextField() {
+    return TextField(
+    );
   }
 }

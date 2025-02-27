@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   final String _appBarTitle = "getir";
   final String _advertImage = "assets/advert2.png";
-  final String _address = "Gaziantep Üniversitesi Teknopark";
-  final String _locationName = "İş Yeri";
+  final String _address = "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
+  final String _locationName = "Ev";
   final String _duration = "15-20 DK";
   final Color _getirColor = Color(0xFF5C3CBB);
 
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         appBar: _getAppBar(),
         body: Column(children: [
-          _getAdressBar(_locationName, _address, _duration),
+          _getAdressBar(context, _locationName, _address, _duration),
           SizedBox(height: 5),
           _getAdvert(_advertImage),
           SizedBox(height: 30),
@@ -71,45 +71,59 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _getAdressBar(String locationName, String address, String duration) {
-    return GestureDetector(
-      onTap: () {},
-      child: Row(
+  Widget _getAdressBar(BuildContext context, String locationName,
+      String address, String duration) {
+    return Container(
+      width: double.infinity,
+      color: Colors.amber,
+      child: Stack(
         children: [
-          Container(
-            width: 350,
-            height: 45,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius:
-                    BorderRadius.horizontal(right: Radius.circular(15))),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "$locationName, $address",
-                    style: TextStyle(fontSize: 14, color: Colors.black),
-                    overflow: TextOverflow.ellipsis,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.80,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                      BorderRadius.horizontal(right: Radius.circular(10)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 15, right: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "$locationName, $address",
+                          style: TextStyle(fontSize: 13, color: Colors.black),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Icon(
+                        Icons.expand_more,
+                        color: _getirColor,
+                      )
+                    ],
                   ),
                 ),
-                Icon(Icons.expand_more, color: _getirColor, size: 30),
-              ],
+              ),
             ),
           ),
-          Container(
-            height: 45,
-            width: 98,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-            ),
-            child: Center(
-              child: Text(
-                duration,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: _getirColor,
-                    fontWeight: FontWeight.w700),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.20,
+              height: 40,
+              child: Center(
+                child: Text(
+                  duration,
+                  style: TextStyle(
+                      fontSize: 13,
+                      color: _getirColor,
+                      fontWeight: FontWeight.w700),
+                ),
               ),
             ),
           ),

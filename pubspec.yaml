@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.4 
+  sdk: ^3.5.4
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -57,24 +57,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/advert.png
-    - assets/advert2.png
-    - assets/drinks.png
-    - assets/baked_goods.png
-    - assets/food.png
-    - assets/fruits_vegetables.png
-    - assets/ice_cream.png
-    - assets/milk_dairy.png
-    - assets/snacks.png
-    - assets/baby.png
-    - assets/breakfast.png
-    - assets/homeCare.png
-    - assets/homeLife.png
-    - assets/fitForm.png
-    - assets/personalCare.png
-    - assets/meats.png
-    - assets/pets.png
-    - assets/readyFood.png
+    - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
