@@ -1,14 +1,15 @@
-import 'package:flutter/material.dart'; // Flutter'ın temel widget'lerini ve materyal tasarımını içe aktarır.
+import 'package:flutter/material.dart';
 
-class expressionHomePage extends StatelessWidget {
+import 'custom_widgets.dart';
+
+class ExpressionHomePage extends StatelessWidget {
   // StatelessWidget, değişmeyen bir widget'tir. Bu sınıf, ana sayfamızı temsil eder.
-  final String _appBarTitle = "getir"; // AppBar'da gösterilecek başlık metni.
   final String _advertImage =
       "assets/advert2.png"; // Reklam resminin dosya yolu.
-  final String _address = "Gaziantep Üniversitesi Teknopark"; // Adres bilgisi.
-  final String _locationName = "İş Yeri"; // Konum adı.
+  final String _address =
+      "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi"; // Adres bilgisi.
+  final String _locationName = "Ev"; // Konum adı.
   final String _duration = "15-20 DK"; // Teslimat süresi.
-  final Color _getirColor = Color(0xFF5C3CBB); // Getir'in ana rengi (mor).
 
   // Kategorileri ve her bir kategori için resim ve başlık bilgilerini içeren liste.
   final List<Map<String, String>> _categories = [
@@ -30,131 +31,92 @@ class expressionHomePage extends StatelessWidget {
     {"image": "assets/baby.png", "title": "Bebek"},
   ];
 
-  expressionHomePage(
+  ExpressionHomePage(
       {super.key}); // Constructor metodu. Key, widget'lerin kimliğini belirlemek için kullanılır.
 
   @override
   Widget build(BuildContext context) {
     // build metodu, widget'ın nasıl görüneceğini belirler.
     return Scaffold(
-        // Scaffold, materyal tasarımının temel yapısını sağlar.
-        appBar: _getAppBar(), // AppBar'ı oluşturan metodu çağırır.
-        body: Column(children: [
-          // Column, widget'leri dikey olarak sıralar.
-          _getAdressBar(_locationName, _address, _duration),
+      // 1. Scaffold: Materyal tasarımının temel yapısını sağlar. AppBar, Body, BottomNavigationBar gibi bileşenleri içerir.
+      appBar: CustomWidgets.getAppBar("getir", Colors.amber, 24),
+      // Özel AppBar widget'ini çağırır.
+      body: Column(
+        // 2. Column: Widget'leri dikey olarak sıralar.
+        children: [
+          _getAdressBar(context, _locationName, _address, _duration),
           // Adres çubuğunu oluşturan metodu çağırır.
-          SizedBox(height: 5),
-          // 5 piksel boşluk ekler.
+          const SizedBox(height: 5),
+          // 3. SizedBox: 5 piksel boşluk ekler.
           _getAdvert(_advertImage),
           // Reklam resmini oluşturan metodu çağırır.
-          SizedBox(height: 30),
-          // 30 piksel boşluk ekler.
+          const SizedBox(height: 30),
+          // 3. SizedBox: 30 piksel boşluk ekler.
           _getCategories(),
           // Kategorileri oluşturan metodu çağırır.
-        ]),
-        bottomNavigationBar:
-            _getBottomNavigationBar()); // Alt navigasyon çubuğunu oluşturan metodu çağırır.
-  }
-
-  Widget _getBottomNavigationBar() {
-    // Alt navigasyon çubuğunu oluşturan metod.
-    return BottomNavigationBar(
-        // BottomNavigationBar, alt navigasyon çubuğunu temsil eder.
-        currentIndex: 0,
-        // Seçili olan sekmenin indeksi.
-        items: [
-          // Navigasyon çubuğundaki öğeler.
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          // Ana sayfa sekmesi.
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
-          // Arama sekmesi.
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-          // Profil sekmesi.
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: ""),
-          // Hediyeler sekmesi.
         ],
-        type: BottomNavigationBarType.fixed,
-        // Sabit bir navigasyon çubuğu tipi.
-        selectedItemColor: _getirColor); // Seçili öğenin rengi.
-  }
-
-  PreferredSizeWidget _getAppBar() {
-    // AppBar'ı oluşturan metod.
-    return AppBar(
-      // AppBar, uygulamanın üst kısmındaki çubuktur.
-      title: Text(
-        // AppBar'ın başlık metni.
-        _appBarTitle,
-        style: TextStyle(
-          // Metin stilini belirler.
-          color: Colors.amber, // Metin rengi.
-          fontSize: 24, // Metin boyutu.
-          fontWeight: FontWeight.bold, // Metin kalınlığı.
-        ),
       ),
-      centerTitle: true, // Başlığı ortalar.
-      backgroundColor: _getirColor, // AppBar'ın arka plan rengi.
+      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(
+          0, (index) {}), // Özel BottomNavigationBar widget'ini çağırır.
     );
   }
 
-  Widget _getAdressBar(String locationName, String address, String duration) {
-    // Adres çubuğunu oluşturan metod.
-    return GestureDetector(
-      // GestureDetector, dokunma olaylarını algılar.
-      onTap: () {}, // Dokunma olayı için boş bir fonksiyon.
-      child: Row(
-        // Row, widget'leri yatay olarak sıralar.
+  Widget _getAdressBar(BuildContext context, String locationName,
+      String address, String duration) {
+    return Container(
+      width: double.infinity,
+      color: Colors.amber,
+      child: Stack(
         children: [
-          Container(
-            // Container, widget'leri gruplamak ve stil vermek için kullanılır.
-            width: 350,
-            // Container'ın genişliği.
-            height: 45,
-            // Container'ın yüksekliği.
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            // İç boşluk.
-            decoration: BoxDecoration(
-                // Container'ın stilini belirler.
-                color: Colors.white, // Arka plan rengi.
-                borderRadius:
-                    BorderRadius.horizontal(right: Radius.circular(15))),
-            // Sağ köşeyi yuvarlar.
-            child: Row(
-              // İçerikteki widget'leri yatay olarak sıralar.
-              children: [
-                Expanded(
-                  // Expanded, widget'in kalan alanı kaplamasını sağlar.
-                  child: Text(
-                    // Metin widget'i.
-                    "$locationName, $address", // Adres bilgisi.
-                    style: TextStyle(fontSize: 14, color: Colors.black),
-                    // Metin stili.
-                    overflow: TextOverflow
-                        .ellipsis, // Metin taşarsa üç nokta ile gösterir.
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.80,
+                height: 40,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                      BorderRadius.horizontal(right: Radius.circular(10)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 11, bottom: 11, left: 15, right: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "$locationName, $address",
+                          style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.expand_more,
+                        color: CustomWidgets.getirColor,
+                      )
+                    ],
                   ),
                 ),
-                Icon(Icons.expand_more, color: _getirColor, size: 30),
-                // Genişletme ikonu.
-              ],
+              ),
             ),
           ),
-          Container(
-            // İkinci Container, teslimat süresini gösterir.
-            height: 45, // Yükseklik.
-            width: 98, // Genişlik.
-            decoration: BoxDecoration(
-              color: Colors.amber, // Arka plan rengi.
-            ),
-            child: Center(
-              // İçeriği ortalar.
-              child: Text(
-                // Teslimat süresi metni.
-                duration,
-                style: TextStyle(
-                    // Metin stili.
-                    fontSize: 14,
-                    color: _getirColor,
-                    fontWeight: FontWeight.w700),
+          Align(
+            alignment: Alignment.centerRight,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.20,
+              height: 40,
+              child: Center(
+                child: Text(
+                  duration,
+                  style: const TextStyle(
+                      fontSize: 13,
+                      color: CustomWidgets.getirColor,
+                      fontWeight: FontWeight.w700),
+                ),
               ),
             ),
           ),
@@ -164,16 +126,15 @@ class expressionHomePage extends StatelessWidget {
   }
 
   Widget _getAdvert(String image) {
-    // Reklam resmini oluşturan metod.
     return Padding(
-      // Padding, içeriğe boşluk ekler.
-      padding: EdgeInsets.only(left: 10, right: 10, top: 15),
+      // 8. Padding: İçeriğe boşluk ekler.
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
       // Sol, sağ ve üst boşluk.
       child: ClipRRect(
-        // ClipRRect, widget'in köşelerini yuvarlar.
+        // 14. ClipRRect: Widget'in köşelerini yuvarlar.
         borderRadius: BorderRadius.circular(25), // Köşe yuvarlaklığı.
         child: Image.asset(
-          // Resim widget'i.
+          // 15. Image.asset: Proje içindeki resim dosyalarını göstermek için kullanılır.
           image,
           fit: BoxFit.cover, // Resmi kaplama şekli.
         ),
@@ -182,38 +143,36 @@ class expressionHomePage extends StatelessWidget {
   }
 
   Widget _getCategories() {
-    // Kategorileri oluşturan metod.
     return Expanded(
-        // Expanded, widget'in kalan alanı kaplamasını sağlar.
-        child: GridView.builder(
-            // GridView.builder, ızgara yapısında widget'ler oluşturur.
-            itemCount: _categories.length, // Kategori sayısı.
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              // Izgara yapısını belirler.
-              crossAxisCount: 4, // Yatayda 4 sütun.
-              mainAxisSpacing: 10, // Dikey boşluk.
-              crossAxisSpacing: 10, // Yatay boşluk.
-              childAspectRatio: 0.9, // Çocuk widget'lerin en-boy oranı.
-            ),
-            itemBuilder: (context, index) {
-              // Her bir kategori için widget oluşturur.
-              return _buildCategories(
-                _categories[index]["image"]!, // Kategori resmi.
-                _categories[index]["title"]!, // Kategori başlığı.
-              );
-            }));
+      // 10. Expanded: Widget'in kalan alanı kaplamasını sağlar.
+      child: GridView.builder(
+        // 16. GridView.builder: Izgara yapısında widget'ler oluşturur.
+        itemCount: _categories.length, // Kategori sayısı.
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4, // Yatayda 4 sütun.
+          mainAxisSpacing: 10, // Dikey boşluk.
+          crossAxisSpacing: 10, // Yatay boşluk.
+          childAspectRatio: 0.9, // Çocuk widget'lerin en-boy oranı.
+        ),
+        itemBuilder: (context, index) {
+          return _buildCategories(
+            _categories[index]["image"]!, // Kategori resmi.
+            _categories[index]["title"]!, // Kategori başlığı.
+          );
+        },
+      ),
+    );
   }
 
   Widget _buildCategories(String imagePath, String text) {
-    // Kategori widget'ini oluşturan metod.
     return Padding(
-      // Padding, içeriğe boşluk ekler.
+      // 8. Padding: İçeriğe boşluk ekler.
       padding: const EdgeInsets.only(right: 10, left: 10), // Sağ ve sol boşluk.
       child: Column(
-        // Column, widget'leri dikey olarak sıralar.
+        // 2. Column: Widget'leri dikey olarak sıralar.
         children: [
           Container(
-            // Container, kategori resmini içerir.
+            // 4. Container: Widget'leri gruplamak ve stil vermek için kullanılır.
             width: 85, // Genişlik.
             height: 85, // Yükseklik.
             decoration: BoxDecoration(
@@ -221,15 +180,16 @@ class expressionHomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20), // Köşe yuvarlaklığı.
             ),
             child: ClipRRect(
-              // ClipRRect, resmin köşelerini yuvarlar.
+              // 14. ClipRRect: Widget'in köşelerini yuvarlar.
               borderRadius: BorderRadius.circular(20), // Köşe yuvarlaklığı.
-              child:
-                  Image.asset(imagePath, fit: BoxFit.cover), // Kategori resmi.
+              child: Image.asset(imagePath,
+                  fit: BoxFit
+                      .cover), // 15. Image.asset: Resim dosyasını gösterir.
             ),
           ),
-          const SizedBox(height: 5), // 5 piksel boşluk.
+          const SizedBox(height: 5), // 3. SizedBox: 5 piksel boşluk.
           Text(
-            // Kategori başlığı.
+            // 6. Text: Metin göstermek için kullanılır.
             text,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
             // Metin stili.

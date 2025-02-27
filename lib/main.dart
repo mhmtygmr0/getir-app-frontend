@@ -1,5 +1,4 @@
 import 'package:fake_getir_app/home_page.dart';
-import 'package:fake_getir_app/search_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
