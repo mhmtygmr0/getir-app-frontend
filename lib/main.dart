@@ -1,4 +1,4 @@
-import 'package:fake_getir_app/viewPages/home_page.dart';
+import 'package:fake_getir_app/view/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

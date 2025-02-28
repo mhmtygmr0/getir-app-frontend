@@ -1,4 +1,4 @@
-import 'package:fake_getir_app/custom_widgets.dart';
+import 'package:fake_getir_app/product/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {

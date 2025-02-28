@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom_widgets.dart';
+import '../product/custom_widgets.dart';
 
 class ExpressionHomePage extends StatelessWidget {
   // StatelessWidget, değişmeyen bir widget'tir. Bu sınıf, ana sayfamızı temsil eder.
