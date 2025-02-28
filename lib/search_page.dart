@@ -7,7 +7,8 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomWidgets.getAppBar("Arama", Colors.white, 19),
+      appBar:
+          CustomWidgets.getAppBar("Arama", Colors.white, 19, FontWeight.normal),
       body: Column(
         children: [_getTextField()],
       ),

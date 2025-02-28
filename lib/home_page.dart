@@ -32,7 +32,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomWidgets.getAppBar("getir", Colors.amber, 24),
+      appBar:
+          CustomWidgets.getAppBar("getir", Colors.amber, 24, FontWeight.bold),
       body: Column(
         children: [
           _getAdressBar(context, _locationName, _address, _duration),

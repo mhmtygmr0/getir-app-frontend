@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class CustomWidgets {
   static const Color getirColor = Color(0xFF5C3CBB);
 
-  static PreferredSizeWidget getAppBar(
-      String title, Color titleColor, double titleSize) {
+  static PreferredSizeWidget getAppBar(String title, Color titleColor,
+      double titleSize, FontWeight titleFontWeight) {
     return AppBar(
       title: Text(
         title,
         style: TextStyle(
           color: titleColor,
           fontSize: titleSize,
-          fontWeight: FontWeight.bold,
+          fontWeight: titleFontWeight,
         ),
       ),
       centerTitle: true,
