@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'custom_widgets.dart';
+import '../custom_widgets.dart';
 
-class ExpressionHomePage extends StatelessWidget {
-  // StatelessWidget, değişmeyen bir widget'tir. Bu sınıf, ana sayfamızı temsil eder.
-  final String _advertImage =
-      "assets/advert2.png"; // Reklam resminin dosya yolu.
-  final String _address =
-      "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi"; // Adres bilgisi.
-  final String _locationName = "Ev"; // Konum adı.
-  final String _duration = "15-20 DK"; // Teslimat süresi.
+class HomePage extends StatelessWidget {
+  final String _advertImage = "assets/advert2.png";
+  final String _address = "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
+  final String _locationName = "Ev";
+  final String _duration = "15-20 DK";
 
-  // Kategorileri ve her bir kategori için resim ve başlık bilgilerini içeren liste.
   final List<Map<String, String>> _categories = [
     {"image": "assets/drinks.png", "title": "Su & İçecek"},
     {"image": "assets/snacks.png", "title": "Atıştırmalık"},
@@ -31,33 +27,23 @@ class ExpressionHomePage extends StatelessWidget {
     {"image": "assets/baby.png", "title": "Bebek"},
   ];
 
-  ExpressionHomePage(
-      {super.key}); // Constructor metodu. Key, widget'lerin kimliğini belirlemek için kullanılır.
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // build metodu, widget'ın nasıl görüneceğini belirler.
     return Scaffold(
-      // 1. Scaffold: Materyal tasarımının temel yapısını sağlar. AppBar, Body, BottomNavigationBar gibi bileşenleri içerir.
-      appBar: CustomWidgets.getAppBar("getir", Colors.amber, 24),
-      // Özel AppBar widget'ini çağırır.
+      appBar:
+          CustomWidgets.getAppBar("getir", Colors.amber, 24, FontWeight.bold),
       body: Column(
-        // 2. Column: Widget'leri dikey olarak sıralar.
         children: [
           _getAdressBar(context, _locationName, _address, _duration),
-          // Adres çubuğunu oluşturan metodu çağırır.
           const SizedBox(height: 5),
-          // 3. SizedBox: 5 piksel boşluk ekler.
           _getAdvert(_advertImage),
-          // Reklam resmini oluşturan metodu çağırır.
           const SizedBox(height: 30),
-          // 3. SizedBox: 30 piksel boşluk ekler.
           _getCategories(),
-          // Kategorileri oluşturan metodu çağırır.
         ],
       ),
-      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(
-          0, (index) {}), // Özel BottomNavigationBar widget'ini çağırır.
+      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(0, (index) {}),
     );
   }
 
@@ -127,16 +113,12 @@ class ExpressionHomePage extends StatelessWidget {
 
   Widget _getAdvert(String image) {
     return Padding(
-      // 8. Padding: İçeriğe boşluk ekler.
       padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
-      // Sol, sağ ve üst boşluk.
       child: ClipRRect(
-        // 14. ClipRRect: Widget'in köşelerini yuvarlar.
-        borderRadius: BorderRadius.circular(25), // Köşe yuvarlaklığı.
+        borderRadius: BorderRadius.circular(25),
         child: Image.asset(
-          // 15. Image.asset: Proje içindeki resim dosyalarını göstermek için kullanılır.
           image,
-          fit: BoxFit.cover, // Resmi kaplama şekli.
+          fit: BoxFit.cover,
         ),
       ),
     );
@@ -144,20 +126,18 @@ class ExpressionHomePage extends StatelessWidget {
 
   Widget _getCategories() {
     return Expanded(
-      // 10. Expanded: Widget'in kalan alanı kaplamasını sağlar.
       child: GridView.builder(
-        // 16. GridView.builder: Izgara yapısında widget'ler oluşturur.
-        itemCount: _categories.length, // Kategori sayısı.
+        itemCount: _categories.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4, // Yatayda 4 sütun.
-          mainAxisSpacing: 10, // Dikey boşluk.
-          crossAxisSpacing: 10, // Yatay boşluk.
-          childAspectRatio: 0.9, // Çocuk widget'lerin en-boy oranı.
+          crossAxisCount: 4,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          childAspectRatio: 0.9,
         ),
         itemBuilder: (context, index) {
           return _buildCategories(
-            _categories[index]["image"]!, // Kategori resmi.
-            _categories[index]["title"]!, // Kategori başlığı.
+            _categories[index]["image"]!,
+            _categories[index]["title"]!,
           );
         },
       ),
@@ -166,34 +146,26 @@ class ExpressionHomePage extends StatelessWidget {
 
   Widget _buildCategories(String imagePath, String text) {
     return Padding(
-      // 8. Padding: İçeriğe boşluk ekler.
-      padding: const EdgeInsets.only(right: 10, left: 10), // Sağ ve sol boşluk.
+      padding: const EdgeInsets.only(right: 10, left: 10),
       child: Column(
-        // 2. Column: Widget'leri dikey olarak sıralar.
         children: [
           Container(
-            // 4. Container: Widget'leri gruplamak ve stil vermek için kullanılır.
-            width: 85, // Genişlik.
-            height: 85, // Yükseklik.
+            width: 85,
+            height: 85,
             decoration: BoxDecoration(
-              color: Colors.grey[300], // Arka plan rengi.
-              borderRadius: BorderRadius.circular(20), // Köşe yuvarlaklığı.
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(20),
             ),
             child: ClipRRect(
-              // 14. ClipRRect: Widget'in köşelerini yuvarlar.
-              borderRadius: BorderRadius.circular(20), // Köşe yuvarlaklığı.
-              child: Image.asset(imagePath,
-                  fit: BoxFit
-                      .cover), // 15. Image.asset: Resim dosyasını gösterir.
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(imagePath, fit: BoxFit.cover),
             ),
           ),
-          const SizedBox(height: 5), // 3. SizedBox: 5 piksel boşluk.
+          const SizedBox(height: 5),
           Text(
-            // 6. Text: Metin göstermek için kullanılır.
             text,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
-            // Metin stili.
-            textAlign: TextAlign.center, // Metni ortalar.
+            textAlign: TextAlign.center,
           ),
         ],
       ),
