@@ -8,26 +8,7 @@ class HomePage extends StatelessWidget {
   final String _locationName = "Ev";
   final String _duration = "15-20 DK";
 
-  final List<Map<String, String>> _categories = [
-    {"image": "assets/drinks.png", "title": "Su & İçecek"},
-    {"image": "assets/snacks.png", "title": "Atıştırmalık"},
-    {"image": "assets/fruits_vegetables.png", "title": "Meyve & Sebze"},
-    {"image": "assets/milk_dairy.png", "title": "Süt Ürünleri"},
-    {"image": "assets/baked_goods.png", "title": "Fırından"},
-    {"image": "assets/ice_cream.png", "title": "Dondurma"},
-    {"image": "assets/food.png", "title": "Temel Gıda"},
-    {"image": "assets/breakfast.png", "title": "Kahvaltılık"},
-    {"image": "assets/readyFood.png", "title": "Yiyecek"},
-    {"image": "assets/meats.png", "title": "Et, Tavuk & Balık"},
-    {"image": "assets/fitForm.png", "title": "Fit & Form"},
-    {"image": "assets/personalCare.png", "title": "Kişisel Bakım"},
-    {"image": "assets/homeCare.png", "title": "Ev Bakım"},
-    {"image": "assets/homeLife.png", "title": "Ev & Yaşam"},
-    {"image": "assets/pets.png", "title": "Evcil Hayvan"},
-    {"image": "assets/baby.png", "title": "Bebek"},
-  ];
-
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +18,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           _getAdressBar(context, _locationName, _address, _duration),
-          const SizedBox(height: 5),
           _getAdvert(_advertImage),
-          const SizedBox(height: 30),
           _getCategories(),
         ],
       ),
@@ -113,7 +92,7 @@ class HomePage extends StatelessWidget {
 
   Widget _getAdvert(String image) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
+      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 13),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: Image.asset(
@@ -127,7 +106,7 @@ class HomePage extends StatelessWidget {
   Widget _getCategories() {
     return Expanded(
       child: GridView.builder(
-        itemCount: _categories.length,
+        itemCount: CustomWidgets.categories.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
           mainAxisSpacing: 10,
@@ -136,8 +115,8 @@ class HomePage extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return _buildCategories(
-            _categories[index]["image"]!,
-            _categories[index]["title"]!,
+            CustomWidgets.categories[index]["image"]!,
+            CustomWidgets.categories[index]["title"]!,
           );
         },
       ),
