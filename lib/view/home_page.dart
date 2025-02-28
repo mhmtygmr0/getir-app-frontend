@@ -124,30 +124,29 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildCategories(String imagePath, String text) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10, left: 10),
-      child: Column(
-        children: [
-          Container(
-            width: 85,
-            height: 85,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(imagePath, fit: BoxFit.cover),
-            ),
+    return Column(
+      children: [
+        Container(
+          width: 85,
+          height: 85,
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.circular(20),
           ),
-          const SizedBox(height: 5),
-          Text(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(imagePath, fit: BoxFit.cover),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: Text(
             text,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
             textAlign: TextAlign.center,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
