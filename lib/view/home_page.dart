@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import '../product/custom_widgets.dart';
 
 class HomePage extends StatelessWidget {
-  final String _advertImage = "assets/advert2.png";
-  final String _address = "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
-  final String _locationName = "Ev";
-  final String _duration = "15-20 DK";
+  static const String _advertImage = "assets/advertImages/advert2.png";
+  static const String _address =
+      "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
+  static const String _locationName = "Ev";
+  static const String _duration = "15-20 DK";
 
   const HomePage({super.key});
 
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
             child: GestureDetector(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.80,
-                height: 40,
+                height: 45,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius:
@@ -92,12 +93,18 @@ class HomePage extends StatelessWidget {
 
   Widget _getAdvert(String image) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 13),
+      padding: const EdgeInsets.only(
+        left: 13,
+        right: 13,
+        top: 15,
+        bottom: 30,
+      ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(15),
         child: Image.asset(
           image,
           fit: BoxFit.cover,
+          height: 175,
         ),
       ),
     );
@@ -109,8 +116,8 @@ class HomePage extends StatelessWidget {
         itemCount: CustomWidgets.categories.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
+          mainAxisSpacing: 5,
+          crossAxisSpacing: 2,
           childAspectRatio: 0.9,
         ),
         itemBuilder: (context, index) {
@@ -127,24 +134,22 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 85,
-          height: 85,
+          width: 82,
+          height: 82,
           decoration: BoxDecoration(
             color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(10),
             child: Image.asset(imagePath, fit: BoxFit.cover),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: Text(
-            text,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
-            textAlign: TextAlign.center,
-          ),
+        SizedBox(height: 2),
+        Text(
+          text,
+          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+          textAlign: TextAlign.center,
         ),
       ],
     );
