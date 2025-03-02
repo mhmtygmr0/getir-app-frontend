@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      top: 11, bottom: 11, left: 15, right: 20),
+                      top: 11, bottom: 11, left: 15, right: 10),
                   child: Row(
                     children: [
                       Expanded(
@@ -56,10 +56,11 @@ class HomePage extends StatelessWidget {
                           style: const TextStyle(
                               fontSize: 13,
                               color: Colors.black,
-                              fontWeight: FontWeight.w400),
+                              fontWeight: FontWeight.w500),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
+                      SizedBox(width: 20),
                       const Icon(
                         Icons.expand_more,
                         color: CustomWidgets.getirColor,
@@ -74,14 +75,15 @@ class HomePage extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.20,
-              height: 40,
-              child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 12),
                 child: Text(
+                  textAlign: TextAlign.center,
                   duration,
                   style: const TextStyle(
-                      fontSize: 13,
+                      fontSize: 14,
                       color: CustomWidgets.getirColor,
-                      fontWeight: FontWeight.w700),
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
