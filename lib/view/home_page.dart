@@ -51,12 +51,26 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          "$locationName, $address",
-                          style: const TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500),
+                        child: Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "$locationName, ",
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: CustomWidgets.getirColor, // Mor renk
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextSpan(
+                                text: address,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
