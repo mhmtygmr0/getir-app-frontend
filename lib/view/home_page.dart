@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import '../product/custom_widgets.dart';
 
 class HomePage extends StatelessWidget {
-  static const String _advertImage = "assets/advertImages/advert1.png";
+  static const List<String> advertImages = [
+    "assets/advertImages/advert1.png",
+    "assets/advertImages/advert2.png",
+    "assets/advertImages/advert3.png",
+    "assets/advertImages/advert4.png",
+    "assets/advertImages/advert5.png",
+    "assets/advertImages/advert6.png",
+    "assets/advertImages/advert7.png",
+    "assets/advertImages/advert8.png",
+  ];
   static const String _address =
       "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
   static const String _locationName = "Ev";
@@ -19,7 +28,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           _getAdressBar(context, _locationName, _address, _duration),
-          _getAdvert(_advertImage),
+          _getAdvertSlider(),
           _getCategories(),
         ],
       ),
@@ -74,7 +83,7 @@ class HomePage extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       const Icon(
                         Icons.expand_more,
                         color: CustomWidgets.getirColor,
@@ -107,21 +116,36 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _getAdvert(String image) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 13,
-        right: 13,
-        top: 15,
-        bottom: 30,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Image.asset(
-          image,
-          fit: BoxFit.cover,
-          height: 175,
-        ),
+  Widget _getAdvertSlider() {
+    PageController _pageController = PageController(initialPage: 0);
+
+    // Reklamların toplam sayısı
+    int itemCount = advertImages.length;
+
+    return SizedBox(
+      height: 220,
+      child: PageView.builder(
+        controller: _pageController,
+        itemCount: null,
+        itemBuilder: (context, index) {
+          int actualIndex = index % itemCount;
+
+          return Padding(
+            padding: const EdgeInsets.only(
+              left: 13,
+              right: 13,
+              top: 15,
+              bottom: 30,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset(
+                advertImages[actualIndex],
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -161,7 +185,7 @@ class HomePage extends StatelessWidget {
             child: Image.asset(imagePath, fit: BoxFit.cover),
           ),
         ),
-        SizedBox(height: 2),
+        const SizedBox(height: 2),
         Text(
           text,
           style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
