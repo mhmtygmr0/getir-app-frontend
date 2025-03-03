@@ -117,15 +117,14 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _getAdvertSlider() {
-    PageController _pageController = PageController(initialPage: 0);
+    PageController pageController = PageController(initialPage: 0);
 
-    // Reklamların toplam sayısı
     int itemCount = advertImages.length;
 
     return SizedBox(
       height: 220,
       child: PageView.builder(
-        controller: _pageController,
+        controller: pageController,
         itemCount: null,
         itemBuilder: (context, index) {
           int actualIndex = index % itemCount;
