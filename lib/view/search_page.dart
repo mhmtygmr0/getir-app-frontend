@@ -1,5 +1,6 @@
-import 'package:fake_getir_app/product/custom_widgets.dart';
 import 'package:flutter/material.dart';
+
+import '../product/custom_widgets.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
