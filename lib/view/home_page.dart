@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   static const String _address =
       "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
   static const String _locationName = "Ev";
-  static const String _duration = "15-20 DK";
+  static const String _duration = "15-20 dk";
 
   const HomePage({super.key});
 
@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
             child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.20,
               child: Padding(
-                padding: const EdgeInsets.only(top: 12),
+                padding: const EdgeInsets.only(top: 13),
                 child: Text(
                   textAlign: TextAlign.center,
                   duration,
