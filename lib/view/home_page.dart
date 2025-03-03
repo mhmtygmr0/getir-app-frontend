@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../product/custom_widgets.dart';
 
 class HomePage extends StatelessWidget {
-  static const String _advertImage = "assets/advertImages/advert2.png";
+  static const String _advertImage = "assets/advertImages/advert1.png";
   static const String _address =
       "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";
   static const String _locationName = "Ev";
