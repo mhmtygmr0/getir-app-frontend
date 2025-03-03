@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
     int itemCount = advertImages.length;
 
     return SizedBox(
-      height: 220,
+      height: 223,
       child: PageView.builder(
         controller: pageController,
         itemCount: null,
