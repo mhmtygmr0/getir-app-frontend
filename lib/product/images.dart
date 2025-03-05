@@ -33,7 +33,7 @@ class Images {
 
   static final String email = "assets/profileIconImages/email.png";
   static final String phone = "assets/profileIconImages/phone.png";
-  static final String basket = "assets/profileIconImages/email.png";
+  static final String basket = "assets/profileIconImages/basket.png";
   static final String credit_card = "assets/profileIconImages/credit_card.png";
   static final String favorite = "assets/profileIconImages/favorite.png";
   static final String location = "assets/profileIconImages/location.png";
