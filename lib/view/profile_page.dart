@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../product/custom_widgets.dart';
 import '../product/images.dart';
 
-class ProfilePage extends StatelessWidget {
-  ProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   List<Map<String, String>> menuItems = [
     {"image": Images.person, "title": "Mehmet Sait Yağmur"},
     {"image": Images.email, "title": "mehmetygmrr02@gmail.com"},
