@@ -4,7 +4,19 @@ import '../product/custom_widgets.dart';
 import '../product/images.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
+
+  List<Map<String, String>> menuItems = [
+    {"image": Images.person, "title": "Mehmet Sait Yağmur"},
+    {"image": Images.email, "title": "mehmetygmrr02@gmail.com"},
+    {"image": Images.phone, "title": "+905364943531"},
+    {"image": Images.location, "title": "Adreslerim"},
+    {"image": Images.favorite, "title": "Favori Ürünlerim"},
+    {"image": Images.basket, "title": "Geçmiş Siparişlerim"},
+    {"image": Images.credit_card, "title": "Ödeme Yöntemlerim"},
+    {"image": Images.security, "title": "Hesap Ayarları"},
+    {"image": Images.logout, "title": "Çıkış Yap"}
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +29,25 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 15),
-        child: Column(
-          children: [
-            buildMenuItem("Mehmet Sait Yağmur", Images.person, isBoxed: true),
-            buildMenuItem("mehmetygmrr02@gmail.com", Images.email),
-            buildMenuItem("+905364943531", Images.phone),
-            buildMenuItem("Adreslerim", Images.location),
-            buildMenuItem("Favori Ürünlerim", Images.favorite),
-            buildMenuItem("Geçmiş Siparişlerim", Images.basket),
-            buildMenuItem("Ödeme Yöntemlerim", Images.credit_card),
-            buildMenuItem("Hesap Ayarları", Images.security),
-            buildMenuItem("Çıkış Yap", Images.logout),
-          ],
-        ),
+        child: _getMenuItems(),
       ),
+      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(2, (index) {}),
     );
   }
 
-  Widget buildMenuItem(String title, String imagePath, {bool isBoxed = false}) {
+  Widget _getMenuItems() {
+    return ListView.builder(
+        itemCount: menuItems.length,
+        itemBuilder: (context, index) {
+          return buildMenuItem(
+            menuItems[index]["image"]!,
+            menuItems[index]["title"]!,
+            isBoxed: index == 0,
+          );
+        });
+  }
+
+  Widget buildMenuItem(String imagePath, String title, {bool isBoxed = false}) {
     return Card(
       color: Colors.white,
       shape: RoundedRectangleBorder(
@@ -61,7 +74,7 @@ class ProfilePage extends StatelessWidget {
                     )
                   : Image.asset(
                       imagePath,
-                      height: 30,
+                      height: 25,
                       color: CustomWidgets.getirColor,
                     ),
             ),
