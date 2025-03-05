@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../product/custom_widgets.dart';
+import '../product/images.dart';
 
 class HomePage extends StatelessWidget {
-  static const List<String> advertImages = [
-    "assets/advertImages/advert1.png",
-    "assets/advertImages/advert2.png",
-    "assets/advertImages/advert3.png",
-    "assets/advertImages/advert4.png",
-    "assets/advertImages/advert5.png",
-    "assets/advertImages/advert6.png",
-    "assets/advertImages/advert7.png",
-    "assets/advertImages/advert8.png",
+  static List<String> advertImages = [
+    Images.advert1,
+    Images.advert2,
+    Images.advert3,
+    Images.advert4,
+    Images.advert5,
+    Images.advert6,
+    Images.advert7,
+    Images.advert8,
   ];
   static const String _address =
       "Mücahitler Mahallesi Şehit Ertuğrul Polat Caddesi";

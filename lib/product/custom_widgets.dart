@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../images.dart';
+import 'images.dart';
 
 class CustomWidgets {
   static const Color getirColor = Color(0xFF5C3CBB);
@@ -15,10 +15,10 @@ class CustomWidgets {
       title: Text(
         title,
         style: TextStyle(
-          color: titleColor,
-          fontSize: titleSize,
-          fontWeight: titleFontWeight,
-        ),
+            color: titleColor,
+            fontSize: titleSize,
+            fontWeight: titleFontWeight,
+            letterSpacing: 0.001),
       ),
       centerTitle: true,
       backgroundColor: getirColor,

@@ -20,20 +20,20 @@ class _SearchPageState extends State<SearchPage> {
         FontWeight.normal,
       ),
       body: Column(children: [
-        _buildTextField(),
+        _buildTextField("Ürün Ara"),
       ]),
       bottomNavigationBar: CustomWidgets.getBottomNavigationBar(1, (index) {}),
     );
   }
 
-  Widget _buildTextField() {
+  Widget _buildTextField(String title) {
     return TextField(
       decoration: InputDecoration(
           prefixIcon: Icon(Icons.search, color: CustomWidgets.getirColor),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.zero,
           ),
-          hintText: "Ürün Ara",
+          hintText: title,
           hintStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
           suffixIcon: Icon(Icons.mic)),
     );
