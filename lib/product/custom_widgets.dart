@@ -83,10 +83,10 @@ class _CustomWidgetsState extends State<CustomWidgets>
                   () {}); // Sayfa değiştiğinde setState çağrısı ile renk güncellenir
             },
             tabs: [
-              customTab(Images.home, 0),
-              customTab(Images.search, 1),
-              customTab(Images.person, 2),
-              customTab(Images.gift, 3),
+              customTab(Images.home, 0, 30, 30),
+              customTab(Images.search, 1, 30, 30),
+              customTab(Images.person, 2, 25, 25),
+              customTab(Images.gift, 3, 25, 25),
             ],
           ),
         ),
@@ -104,15 +104,14 @@ class _CustomWidgetsState extends State<CustomWidgets>
     );
   }
 
-  Widget customTab(String imagePath, int index) {
+  Widget customTab(String imagePath, int index, double width, double height) {
     return Tab(
       icon: Image.asset(
         imagePath,
-        width: 30,
-        height: 30,
-        color: _tabController.index == index
-            ? AppColors.getirColor
-            : Colors.grey, // Renk değişikliği burada
+        width: width,
+        height: height,
+        color:
+            _tabController.index == index ? AppColors.getirColor : Colors.grey,
       ),
     );
   }
