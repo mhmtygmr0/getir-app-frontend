@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../product/colors.dart';
 import '../product/custom_widgets.dart';
 
 class SearchPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget _buildTextField(String title) {
     return TextField(
       decoration: InputDecoration(
-          prefixIcon: Icon(Icons.search, color: CustomWidgets.getirColor),
+          prefixIcon: Icon(Icons.search, color: AppColors.getirColor),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.zero,
           ),

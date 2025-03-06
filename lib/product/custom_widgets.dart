@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
 import 'images.dart';
 
 class CustomWidgets {
-  static const Color getirColor = Color(0xFF5C3CBB);
-
   static PreferredSizeWidget getAppBar(
     String title,
     Color titleColor,
@@ -21,7 +20,7 @@ class CustomWidgets {
             letterSpacing: 0.001),
       ),
       centerTitle: true,
-      backgroundColor: getirColor,
+      backgroundColor: AppColors.getirColor,
     );
   }
 
@@ -37,7 +36,7 @@ class CustomWidgets {
               Images.home,
               width: 30,
               height: 30,
-              color: currentIndex == 0 ? getirColor : Colors.grey,
+              color: currentIndex == 0 ? AppColors.getirColor : Colors.grey,
             ),
           ),
           label: "",
@@ -49,7 +48,7 @@ class CustomWidgets {
               Images.search,
               width: 30,
               height: 30,
-              color: currentIndex == 1 ? getirColor : Colors.grey,
+              color: currentIndex == 1 ? AppColors.getirColor : Colors.grey,
             ),
           ),
           label: "",
@@ -61,7 +60,7 @@ class CustomWidgets {
               Images.person,
               width: 25,
               height: 25,
-              color: currentIndex == 2 ? getirColor : Colors.grey,
+              color: currentIndex == 2 ? AppColors.getirColor : Colors.grey,
             ),
           ),
           label: "",
@@ -73,7 +72,7 @@ class CustomWidgets {
               Images.gift,
               width: 25,
               height: 25,
-              color: currentIndex == 3 ? getirColor : Colors.grey,
+              color: currentIndex == 3 ? AppColors.getirColor : Colors.grey,
             ),
           ),
           label: "",

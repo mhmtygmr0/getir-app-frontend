@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../product/colors.dart';
 import '../product/custom_widgets.dart';
 import '../product/images.dart';
 
@@ -78,9 +79,9 @@ class HomePage extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: "$locationName, ",
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 13,
-                                  color: CustomWidgets.getirColor, // Mor renk
+                                  color: AppColors.getirColor, // Mor renk
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -97,9 +98,9 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 20),
-                      const Icon(
+                      Icon(
                         Icons.expand_more,
-                        color: CustomWidgets.getirColor,
+                        color: AppColors.getirColor,
                       ),
                     ],
                   ),
@@ -116,9 +117,9 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   textAlign: TextAlign.center,
                   duration,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
-                    color: CustomWidgets.getirColor,
+                    color: AppColors.getirColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

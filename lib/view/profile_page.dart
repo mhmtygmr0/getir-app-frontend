@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../product/colors.dart';
 import '../product/custom_widgets.dart';
 import '../product/images.dart';
 
@@ -76,13 +77,13 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 45,
                         child: Image.asset(
                           imagePath,
-                          color: CustomWidgets.getirColor,
+                          color: AppColors.getirColor,
                         ),
                       )
                     : Image.asset(
                         imagePath,
                         height: 25,
-                        color: CustomWidgets.getirColor,
+                        color: AppColors.getirColor,
                       ),
               ),
               Text(
@@ -97,7 +98,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.only(right: 15),
                 child: Icon(
                   Icons.arrow_forward_ios_rounded,
-                  color: CustomWidgets.getirColor,
+                  color: AppColors.getirColor,
                   size: 17,
                 ),
               )
