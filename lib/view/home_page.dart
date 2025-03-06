@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:getir_app/product/custom_widgets.dart';
 
 import '../product/colors.dart';
-import '../product/custom_widgets.dart';
 import '../product/images.dart';
 
 class HomePage extends StatelessWidget {

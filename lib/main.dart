@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getir_app/view/main_page.dart';
+import 'package:getir_app/product/custom_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MainPage(),
+      home: CustomWidgets(),
     );
   }
 }
