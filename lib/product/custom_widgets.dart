@@ -24,65 +24,6 @@ class CustomWidgets {
     );
   }
 
-  static Widget getBottomNavigationBar(int currentIndex, Function(int) onTap) {
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: onTap,
-      items: [
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Image.asset(
-              Images.home,
-              width: 30,
-              height: 30,
-              color: currentIndex == 0 ? AppColors.getirColor : Colors.grey,
-            ),
-          ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Image.asset(
-              Images.search,
-              width: 30,
-              height: 30,
-              color: currentIndex == 1 ? AppColors.getirColor : Colors.grey,
-            ),
-          ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Image.asset(
-              Images.person,
-              width: 25,
-              height: 25,
-              color: currentIndex == 2 ? AppColors.getirColor : Colors.grey,
-            ),
-          ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Image.asset(
-              Images.gift,
-              width: 25,
-              height: 25,
-              color: currentIndex == 3 ? AppColors.getirColor : Colors.grey,
-            ),
-          ),
-          label: "",
-        ),
-      ],
-      type: BottomNavigationBarType.fixed,
-      selectedFontSize: 5,
-    );
-  }
-
   static final List<Map<String, String>> categories = [
     {"image": Images.drinks, "title": "Su & İçecek"},
     {"image": Images.snacks, "title": "Atıştırmalık"},

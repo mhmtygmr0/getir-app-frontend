@@ -45,6 +45,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
           height: 55,
           child: TabBar(
             indicatorColor: AppColors.getirColor,
