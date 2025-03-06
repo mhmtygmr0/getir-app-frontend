@@ -45,43 +45,17 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
+          height: 55,
           child: TabBar(
-              indicatorColor: AppColors.getirColor,
-              controller: _tabController,
-              tabs: [
-                Tab(
-                  icon: Image.asset(
-                    Images.home,
-                    width: 30,
-                    height: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-                Tab(
-                  icon: Image.asset(
-                    Images.search,
-                    width: 30,
-                    height: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-                Tab(
-                  icon: Image.asset(
-                    Images.person,
-                    width: 30,
-                    height: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-                Tab(
-                  icon: Image.asset(
-                    Images.gift,
-                    width: 30,
-                    height: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-              ]),
+            indicatorColor: AppColors.getirColor,
+            controller: _tabController,
+            tabs: [
+              customTab(Images.home),
+              customTab(Images.search),
+              customTab(Images.person),
+              customTab(Images.gift),
+            ],
+          ),
         ),
         body: TabBarView(
           controller: _tabController,
@@ -93,6 +67,17 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
             GiftPage(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget customTab(String imagePath) {
+    return Tab(
+      icon: Image.asset(
+        imagePath,
+        width: 30,
+        height: 30,
+        color: Colors.grey,
       ),
     );
   }
