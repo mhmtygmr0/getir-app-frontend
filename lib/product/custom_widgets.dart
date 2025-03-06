@@ -75,13 +75,18 @@ class _CustomWidgetsState extends State<CustomWidgets>
           height: 55,
           child: TabBar(
             indicatorColor: AppColors.getirColor,
+            indicatorPadding: EdgeInsets.only(bottom: -12),
             controller: _tabController,
             dividerColor: Colors.transparent,
+            onTap: (index) {
+              setState(
+                  () {}); // Sayfa değiştiğinde setState çağrısı ile renk güncellenir
+            },
             tabs: [
-              customTab(Images.home),
-              customTab(Images.search),
-              customTab(Images.person),
-              customTab(Images.gift),
+              customTab(Images.home, 0),
+              customTab(Images.search, 1),
+              customTab(Images.person, 2),
+              customTab(Images.gift, 3),
             ],
           ),
         ),
@@ -99,13 +104,15 @@ class _CustomWidgetsState extends State<CustomWidgets>
     );
   }
 
-  Widget customTab(String imagePath) {
+  Widget customTab(String imagePath, int index) {
     return Tab(
       icon: Image.asset(
         imagePath,
         width: 30,
         height: 30,
-        color: Colors.grey,
+        color: _tabController.index == index
+            ? AppColors.getirColor
+            : Colors.grey, // Renk değişikliği burada
       ),
     );
   }
