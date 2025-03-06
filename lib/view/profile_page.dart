@@ -36,7 +36,6 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.only(top: 15),
         child: _getMenuItems(),
       ),
-      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(2, (index) {}),
     );
   }
 

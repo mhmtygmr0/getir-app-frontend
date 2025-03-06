@@ -37,7 +37,6 @@ class HomePage extends StatelessWidget {
           _getCategories(),
         ],
       ),
-      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(0, (index) {}),
     );
   }
 

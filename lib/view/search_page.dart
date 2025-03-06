@@ -22,7 +22,6 @@ class _SearchPageState extends State<SearchPage> {
       body: Column(children: [
         _buildTextField("Ürün Ara"),
       ]),
-      bottomNavigationBar: CustomWidgets.getBottomNavigationBar(1, (index) {}),
     );
   }
 
