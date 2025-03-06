@@ -49,17 +49,22 @@ class _CustomWidgetsState extends State<CustomWidgets>
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            //_tabController.animateTo(2);
-          },
-          shape: CircleBorder(),
-          backgroundColor: AppColors.getirColor,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: Colors.white,
+        resizeToAvoidBottomInset: false,
+        floatingActionButton: SizedBox(
+          width: 70,
+          height: 65,
+          child: FloatingActionButton(
+            onPressed: () {
+              //_tabController.animateTo(2);
+            },
+            shape: CircleBorder(),
+            backgroundColor: AppColors.getirColor,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
@@ -71,6 +76,7 @@ class _CustomWidgetsState extends State<CustomWidgets>
           child: TabBar(
             indicatorColor: AppColors.getirColor,
             controller: _tabController,
+            dividerColor: Colors.transparent,
             tabs: [
               customTab(Images.home),
               customTab(Images.search),
