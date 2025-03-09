@@ -66,6 +66,7 @@ class _CustomWidgetsState extends State<CustomWidgets>
                   color: Colors.white,
                 ),
               ),
+              child: Image.asset(Images.centerIcon),
             ),
           ),
         ),

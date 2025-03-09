@@ -12,6 +12,7 @@ class Images {
   static final String search = "assets/navigationBarIcons/search.ico";
   static final String person = "assets/navigationBarIcons/person.ico";
   static final String gift = "assets/navigationBarIcons/gift.ico";
+  static final String centerIcon = "assets/navigationBarIcons/centerIcon.png";
 
   static final String drinks = "assets/categoryImages/drinks.png";
   static final String snacks = "assets/categoryImages/snacks.png";
