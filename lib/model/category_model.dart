@@ -1,4 +1,4 @@
-import 'package:getir_app/models/product_model.dart';
+import 'package:getir_app/model/product_model.dart';
 
 class CategoryModel {
   int? id;
